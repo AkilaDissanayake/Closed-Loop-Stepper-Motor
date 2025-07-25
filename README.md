@@ -62,7 +62,8 @@ The system supports three primary modes of operation, implemented using a cascad
 Each mode uses real-time encoder feedback and integrates with the FOC and SVM layers to achieve smooth, accurate motor control.
 
 
-
+## Enclosure
+![Image](https://github.com/user-attachments/assets/d901d41d-3a4a-47de-bba0-d745e491a199)
 
 
 ## References
