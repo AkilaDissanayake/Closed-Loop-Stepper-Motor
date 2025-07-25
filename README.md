@@ -64,7 +64,10 @@ Each mode uses real-time encoder feedback and integrates with the FOC and SVM la
 
 ## Enclosure
 ![Image](https://github.com/user-attachments/assets/d901d41d-3a4a-47de-bba0-d745e491a199)
+![Image](https://github.com/user-attachments/assets/c8f5a225-2fad-4fe8-bc09-63f01f6fe618)
 
+## PCB
+ - *The PCB was designed using a **4-layer** stackup to meet the electrical and thermal demands of FOC, SVM, and real-time encoder feedback control.*
 
 ## References
 
