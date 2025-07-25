@@ -61,6 +61,8 @@ The system supports three primary modes of operation, implemented using a cascad
 
 Each mode uses real-time encoder feedback and integrates with the FOC and SVM layers to achieve smooth, accurate motor control.
 
+## Prototype
+
 
 ## Enclosure
 ![Image](https://github.com/user-attachments/assets/d901d41d-3a4a-47de-bba0-d745e491a199)
@@ -69,6 +71,7 @@ Each mode uses real-time encoder feedback and integrates with the FOC and SVM la
 ## PCB
  - *The PCB was designed using a **4-layer** stackup to meet the electrical and thermal demands of FOC, SVM, and real-time encoder feedback control.*
 ![Image](https://github.com/user-attachments/assets/f14de196-a4a8-4fa2-bf8c-45a497991b9d)
+![Image](https://github.com/user-attachments/assets/4b3434ad-3483-46ad-9b8a-935943d19034)
 ## References
 
 - [Field Oriented Control ](https://www.ti.com/video/6296584406001)
