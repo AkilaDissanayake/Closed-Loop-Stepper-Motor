@@ -1,10 +1,6 @@
 # Closed-Loop-Stepper-Motor
 Closed-loop stepper motor control system using Field-Oriented Control (FOC) and Space Vector Modulation (SVM) for precise, smooth, and efficient motion. Encoder feedback enables real-time position correction to eliminate step loss under dynamic loads.
-# Closed-Loop Stepper Motor Control System
 
-## Overview
-
-This project implements an advanced closed-loop stepper motor control system utilizing **Field-Oriented Control (FOC)** and **Space Vector Modulation (SVM)**. It features real-time **encoder feedback**, **dead-time insertion** for power stage safety, and supports **three control modes**: **torque**, **speed**, and **position**. The system is designed for high-performance motion control applications requiring smooth, precise, and reliable motor behavior under varying loads.
 
 ---
 
