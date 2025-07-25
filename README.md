@@ -68,7 +68,7 @@ Each mode uses real-time encoder feedback and integrates with the FOC and SVM la
 
 ## PCB
  - *The PCB was designed using a **4-layer** stackup to meet the electrical and thermal demands of FOC, SVM, and real-time encoder feedback control.*
-
+![Image](https://github.com/user-attachments/assets/f14de196-a4a8-4fa2-bf8c-45a497991b9d)
 ## References
 
 - [Field Oriented Control ](https://www.ti.com/video/6296584406001)
