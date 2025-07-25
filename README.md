@@ -42,7 +42,7 @@ Closed-loop stepper motor control system using Field-Oriented Control (FOC) and 
 - **Interrupt-Driven Architecture**: High-speed real-time control using ADC and timer interrupts
 - **PWM Generation**: Synchronized PWM signals using ePWM modules configured for 10kHz switching
 - **Custom Utility Functions**: Includes IQmath-based sign detection, safe clamping, and loop timing
-- **Dead-time configuration in PWM channels
+- **Dead-time configuration in PWM channels**
 
 ---
 
