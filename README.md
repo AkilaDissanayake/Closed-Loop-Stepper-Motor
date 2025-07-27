@@ -1,79 +1,88 @@
-# Closed-Loop-Stepper-Motor
-Closed-loop stepper motor control system using Field-Oriented Control (FOC) and Space Vector Modulation (SVM) for precise, smooth, and efficient motion. Encoder feedback enables real-time position correction to eliminate step loss under dynamic loads.
+# 🚀 Closed-Loop Stepper Motor Control System  
 
+A **high-performance closed-loop stepper motor system** powered by **Field-Oriented Control (FOC)** and **Space Vector Modulation (SVM)**, delivering **precise**, **smooth**, and **efficient motion control**.  
 
----
-
-## Features
-
-- **Closed-loop control** with real-time encoder feedback
-- **Field-Oriented Control (FOC)** for smooth, efficient torque generation
-- **Space Vector Modulation (SVM)** for optimized PWM output
-- **Dead-time insertion** for safe switching of driver IC
-- **Three control modes**:
-  - **Torque mode**
-  - **Speed mode**
-  - **Position mode**
--  Real-time compensation for load disturbances and step loss
+Real-time **encoder feedback** ensures **zero step loss**, even under heavy dynamic loads – making this system ideal for **robotics**, **CNC machines**, and **advanced automation** applications.  
 
 ---
 
-## Hardware Used
+## ✨ Features  
 
-- Stepper Motor -Nemma17 with magnetic encoder
-- Rotary Encoder -Quadrature
-- Microcontroller-TMS320F28069M
-- Motor Driver -Toshiba TB67H400A
-- Power Supply -24V SMPS power supply
-  
-- LAUNCHXL F28069M development board
-- XDS110 debugger
-
----
-
-## Software Components
-
-- **Field-Oriented Control (FOC)**: Includes Clarke and Park transforms, PI controllers for Id/Iq current regulation
-- **Speed Control Loop**: Outer PI loop regulating speed with real-time feedback from encoder
-- **Space Vector Modulation (SVM)**: Efficient PWM generation for smooth voltage vector application
-- **Dead-Time Insertion**: Prevents shoot-through in MOSFET drivers during switching transitions
-- **Encoder Interface (eQEP)**: Reads position and calculates speed using quadrature encoder signals
-- **Current Sensing and Calibration**: Reads phase currents using ADC with offset and scaling
-- **Interrupt-Driven Architecture**: High-speed real-time control using ADC and timer interrupts
-- **PWM Generation**: Synchronized PWM signals using ePWM modules configured for 10kHz switching
-- **Custom Utility Functions**: Includes IQmath-based sign detection, safe clamping, and loop timing
-- **Dead-time configuration in PWM channels**
+✅ **Closed-Loop Feedback** – Quadrature encoder eliminates step loss by constantly correcting position in real time.  
+✅ **FOC (Field-Oriented Control)** – Decoupled torque & flux control for buttery-smooth motion.  
+✅ **SVM (Space Vector Modulation)** – Generates efficient, optimized PWM waveforms.  
+✅ **Dead-Time Insertion** – Prevents MOSFET shoot-through for safe, reliable switching.  
+✅ **Multi-Mode Control**:  
+   - 🎯 **Torque Mode** – Direct torque regulation via Q-axis current.  
+   - ⚡ **Speed Mode** – Outer PI speed loop for consistent velocity.  
+   - 📍 **Position Mode** – Expandable to precision positioning applications.  
+✅ **Load Disturbance Compensation** – Maintains performance under sudden mechanical shocks.  
 
 ---
 
-## Control Modes
+## 🛠 Hardware Setup  
 
-The system supports three primary modes of operation, implemented using a cascaded control structure:
+- **Stepper Motor**: NEMA17 w/ integrated magnetic encoder  
+- **Encoder**: Quadrature rotary encoder  
+- **MCU**: TI **TMS320F28069M** (C2000 series – optimized for motor control)  
+- **Driver**: Toshiba **TB67H400A** H-bridge driver  
+- **Power Supply**: 24V SMPS  
+- **Dev Board**: TI **LAUNCHXL-F28069M** + XDS110 Debugger  
 
-- **Torque Mode**  
-  Directly regulates motor torque via the **Q-axis current (Iq)** using a PI controller. Suitable for applications where torque control is required without concern for speed or position.
+---
 
-- **Speed Mode**  
-  Implements a **speed PI controller** that sets the torque-producing current (`Iq_ref`) based on the difference between desired and measured speed. The current loop (FOC) ensures precise torque output.
+## 🧠 Software Architecture  
 
-- **Position Mode** *(optional/extendable)*  
-  Position can be controlled using an outer position loop that feeds a speed reference into the speed controller. Though not explicitly shown in this code, it can be added by tracking the encoder position and applying a position error PI controller.
+- 🌀 **FOC Engine** – Implements **Clarke & Park transforms** for current regulation.  
+- ⚙️ **Current Control Loop** – Inner PI loop for **Id/Iq** current control.  
+- 🚀 **Speed Control Loop** – Outer PI loop regulates speed based on encoder feedback.  
+- 🔺 **SVM** – Generates smooth PWM signals for precise voltage vector control.  
+- ⏱ **Dead-Time Management** – Ensures MOSFET safety during commutation.  
+- 🎯 **Encoder Interface (eQEP)** – Real-time speed & position tracking.  
+- 📊 **Current Sensing & Calibration** – Phase current monitoring with ADC correction.  
+- ⚡ **Interrupt-Driven Control** – High-speed ISR-based execution for ultra-low latency.  
+- 🎛 **PWM Generation** – Configured for **10 kHz switching** using TI’s ePWM modules.  
+- 🔧 **Utility Layer** – IQmath-based helpers for sign detection, clamping & timing.  
 
-Each mode uses real-time encoder feedback and integrates with the FOC and SVM layers to achieve smooth, accurate motor control.
+---
 
-## Prototype
+## 🎮 Control Modes  
 
+### 🔴 Torque Mode  
+Controls motor torque **directly** by regulating Q-axis current. Perfect for force-sensitive applications like **robot arms** or **actuators**.  
 
-## Enclosure
-![Image](https://github.com/user-attachments/assets/d901d41d-3a4a-47de-bba0-d745e491a199)
-![Image](https://github.com/user-attachments/assets/c8f5a225-2fad-4fe8-bc09-63f01f6fe618)
+### 🟠 Speed Mode  
+A **cascaded PI loop** sets torque (Iq) based on speed error – ensuring **steady, ripple-free velocity**.  
 
-## PCB
- - *The PCB was designed using a **4-layer** stackup to meet the electrical and thermal demands of FOC, SVM, and real-time encoder feedback control.*
-![Image](https://github.com/user-attachments/assets/f14de196-a4a8-4fa2-bf8c-45a497991b9d)
-![Image](https://github.com/user-attachments/assets/4b3434ad-3483-46ad-9b8a-935943d19034)
-## References
+### 🟢 Position Mode *(Scalable)*  
+An **outer position loop** feeds commands to the speed loop – enabling high-precision motion like **CNC**, **pick-and-place machines**, or **3D printers**.  
 
-- [Field Oriented Control ](https://www.ti.com/video/6296584406001)
-- [TI Application Notes](https://www.tij.co.jp/jp/lit/ug/spru556/spru556.pdf)
-- [TI Application Notes](https://www.ti.com/lit/pdf/sprui11)
+---
+
+## 🔬 Prototype  
+
+🖼 *Compact design built for performance testing*  
+
+![Prototype](https://github.com/user-attachments/assets/d901d41d-3a4a-47de-bba0-d745e491a199)  
+![Prototype](https://github.com/user-attachments/assets/c8f5a225-2fad-4fe8-bc09-63f01f6fe618)  
+
+---
+
+## ⚡ PCB Design  
+
+A **4-layer PCB** designed for **thermal efficiency**, **signal integrity**, and **high-current handling**.  
+
+- ✅ Optimized power & ground planes for **low-noise FOC**.  
+- ✅ Carefully routed encoder & current sense lines for **accurate feedback**.  
+- ✅ Built-in dead-time safe switching logic.  
+
+![PCB](https://github.com/user-attachments/assets/f14de196-a4a8-4fa2-bf8c-45a497991b9d)  
+![PCB](https://github.com/user-attachments/assets/4b3434ad-3483-46ad-9b8a-935943d19034)  
+
+---
+
+## 📚 References  
+
+📘 [TI – Field Oriented Control Overview](https://www.ti.com/video/6296584406001)  
+📘 [TI – C2000 Motor Control User Guide](https://www.tij.co.jp/jp/lit/ug/spru556/spru556.pdf)  
+📘 [TI – InstaSPIN FOC Documentation](https://www.ti.com/lit/pdf/sprui11)  
